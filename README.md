@@ -1,8 +1,11 @@
 Advent Of Code's codes.
 
 ## Usage
-Clone repository and run:
-
+Clone repository and:
+```sh
+composer dump-autoload
+```
+Run the part of day:
 ```sh
 // Year/day/part/code.php
 php Y2021/1/1/code.php
