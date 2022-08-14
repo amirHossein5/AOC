@@ -1,9 +1,9 @@
 <?php
 
-require(__DIR__ . '/../../vendor/autoload.php');
-use Classes\ReadPuzzle;
+require(__DIR__ . '/../../../vendor/autoload.php');
 
-$puzzle = ReadPuzzle::lineByline();
+use Classes\ReadPuzzle;
+$puzzle = ReadPuzzle::lineByline(__DIR__ . '/puzzle.php');
 
 $previous = null;
 $increaseCount = 0;

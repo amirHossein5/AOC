@@ -4,8 +4,8 @@ namespace Classes;
 
 class ReadPuzzle
 {
-    public static function lineByline(string $path = 'puzzle.php'): array
+    public static function lineByline(string $path): array
     {
-        return explode(PHP_EOL, trim(file_get_contents('puzzle.php')));
+        return explode(PHP_EOL, trim(file_get_contents($path)));
     }
 }
