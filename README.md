@@ -5,10 +5,10 @@ Clone repository and:
 ```sh
 composer dump-autoload
 ```
-Run the part of day:
+Run it:
 ```sh
 // Year/day/part_number.php
-php Y2021/1/part_1.php
+php Y2021/D1/part_1.php
 ```
 
 > Don't forget to put your puzzle in ```puzzle.php```
