@@ -1,6 +1,6 @@
 <?php
 
-require(__DIR__ . '/../../../vendor/autoload.php');
+require(__DIR__ . '/../../vendor/autoload.php');
 
 use Classes\ReadPuzzle;
 $puzzle = ReadPuzzle::contents(__DIR__ . '/puzzle.php');
