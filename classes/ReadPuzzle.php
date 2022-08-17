@@ -17,11 +17,23 @@ class ReadPuzzle
 
     /**
      * A trimed file_get_contents.
+     *
      * @param  string $path
      * @return string
      */
     public static function contents(string $path): string
     {
         return trim(file_get_contents($path));
+    }
+
+    /**
+     * Returns the first line.
+     *
+     * @param  string $path
+     * @return string
+     */
+    public static function firstLine(string $path): string
+    {
+        return self::lineByline($path)[0];
     }
 }
