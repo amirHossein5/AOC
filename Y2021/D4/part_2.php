@@ -1,39 +1,119 @@
 <?php
 
 require(__DIR__ . '/../../vendor/autoload.php');
+require('helpers.php');
 
 use Classes\ReadPuzzle;
+
+$input = ReadPuzzle::firstLine(__DIR__ . '/puzzle.php');
 $puzzle = ReadPuzzle::lineByline(__DIR__ . '/puzzle.php');
+unset($puzzle[0]);
 
-$readKeysAfter = null;
-$firstN = null;
-$secondN = null;
-$summedNumbers = [];
+// separating bingoes
+$bingoes = [];
+$skipAfterKey = null;
 
-foreach ($puzzle as $key => $value) {
-    if ($readKeysAfter >= $key && $readKeysAfter) {
+foreach ($puzzle as $i => $data) {
+    if ($skipAfterKey >= $i && $skipAfterKey) {
+        continue;
+    }
+    if (!trim($data)) {
         continue;
     }
 
-    $firstN = $value +
-        (isset($puzzle[$key + 1]) ? $puzzle[$key + 1] : 0) +
-        (isset($puzzle[$key + 2]) ? $puzzle[$key + 2] : 0);
-    $secondN =
-        (isset($puzzle[$key + 1]) ? $puzzle[$key + 1] : 0) +
-        (isset($puzzle[$key + 2]) ? $puzzle[$key + 2] : 0) +
-        (isset($puzzle[$key + 3]) ? $puzzle[$key + 3] : 0);
+    // add complete bingo to data
+    for ($in=1; $in < 5; $in++) {
+        $data .= ' ' . $puzzle[$in + $i];
+    }
 
-    $readKeysAfter = $key + 1;
-    $summedNumbers[] = $firstN;
-    $summedNumbers[] = $secondN;
+    // to array
+    $data = array_filter(explode(' ',$data), fn ($val) => trim($val) !== '');
+    $d = array_values($data);
+
+    $bingoes[] = [
+        'rows' => [
+            $d[00] => false, $d[01] => false, $d[02] => false, $d[03] => false, $d[04] => false,
+            $d[05] => false, $d[06] => false, $d[07] => false, $d[8] => false, $d[9] => false,
+            $d[10] => false, $d[11] => false, $d[12] => false, $d[13] => false, $d[14] => false,
+            $d[15] => false, $d[16] => false, $d[17] => false, $d[18] => false, $d[19] => false,
+            $d[20] => false, $d[21] => false, $d[22] => false, $d[23] => false, $d[24] => false
+        ],
+        'columns' => [
+            $d[00] => false, $d[05] => false, $d[10] => false, $d[15] => false, $d[20] => false,
+            $d[01] => false, $d[06] => false, $d[11] => false, $d[16] => false, $d[21] => false,
+            $d[02] => false, $d[07] => false, $d[12] => false, $d[17] => false, $d[22] => false,
+            $d[03] => false, $d[8] => false, $d[13] => false, $d[18] => false, $d[23] => false,
+            $d[04] => false, $d[9] => false, $d[14] => false, $d[19] => false, $d[24] => false
+        ],
+        'lastDraw' => '',
+        'drawedNumbers' => []
+    ];
+    $skipAfterKey = $i + 4;
 }
 
-$prevN = null;
-$isGreaterCount = 0;
+// draw numbers
+$input = explode(',', $input);
+$solvedBingo = null;
+$lastSolved = null;
 
-foreach($summedNumbers as $number){
-    !($number > $prevN && $prevN) ?: $isGreaterCount ++;
-    $prevN = $number;
+foreach ($input as $inputKey => $number) {
+    for ($i=0; $i < count($bingoes); $i++) {
+        if (isset($bingoes[$i])) {
+            drawBingo(by: $number, bingo: $bingoes[$i]);
+        }
+    }
+
+    // check is solved
+    foreach ($bingoes as $key => $bingo) {
+        if(is_bingo_solved($bingo)) {
+            $lastSolved = $bingo;
+            unset($bingoes[$key]);
+        }
+        if (count($bingoes) === 0) {
+            break 2;
+        }
+    }
+
+    $bingoes = array_values($bingoes);
 }
 
-dump($isGreaterCount);
+$solvedBingo = $lastSolved;
+
+// calculate last solved bingo
+$sumUnmarkedNumbers = 0;
+
+foreach ($solvedBingo['rows'] as $number => $isDrawed) {
+    if (! $isDrawed) {
+        $sumUnmarkedNumbers += $number;
+    }
+}
+
+dump($sumUnmarkedNumbers * $solvedBingo['lastDraw']);
+
+
+
+
+
+// [
+//      [
+//          rows => [
+//              [22 => false, 13, 13, 1, 2
+//              22, 13, 13, 1, 2
+//              22, 13, 13, 1, 2
+//              22, 13, 13, 1, 2
+//              22, 13, 13, 1, 2]
+//          ]
+//          columns => [
+//              [22, 22, 22, 1, 2
+//              22, 13, 13, 1, 2
+//              22, 13, 13, 1, 2
+//              22, 13, 13, 1, 2
+//              22, 13, 13, 1, 2]
+//          ]
+//          lastDraw => ''
+//          drawedNumbers => []
+//      ]
+//      []
+//      []
+// ]
+//
