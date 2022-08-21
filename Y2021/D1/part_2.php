@@ -2,9 +2,9 @@
 
 require __DIR__.'/../../vendor/autoload.php';
 
-use Classes\ReadPuzzle;
+use Classes\Read;
 
-$puzzle = ReadPuzzle::lineByline(__DIR__.'/puzzle.php');
+$puzzle = Read::lineByline(__DIR__.'/puzzle.php');
 
 $readKeysAfter = null;
 $firstN = null;
@@ -37,4 +37,4 @@ foreach ($summedNumbers as $number) {
     $prevN = $number;
 }
 
-dump($isGreaterCount);
+return $isGreaterCount;

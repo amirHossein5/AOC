@@ -3,9 +3,9 @@
 require __DIR__.'/../../vendor/autoload.php';
 require 'helpers.php';
 
-use Classes\ReadPuzzle;
+use Classes\Read;
 
-$puzzle = ReadPuzzle::lineByline(__DIR__.'/puzzle.php');
+$puzzle = Read::lineByline(__DIR__.'/puzzle.php');
 
 // oxygen
 $filtered = $puzzle;
@@ -69,6 +69,6 @@ for ($i = 0; $i < strlen($filtered[0]); $i++) {
 
 $CO2GR = $filtered[0];
 
-dump(
+return (
     bindec($CO2GR) * bindec($oxygenGR)
 );

@@ -1,12 +1,12 @@
 <?php
 
 require __DIR__.'/../../vendor/autoload.php';
-require 'helpers.php';
+require_once 'helpers.php';
 
-use Classes\ReadPuzzle;
+use Classes\Read;
 
-$input = ReadPuzzle::firstLine(__DIR__.'/puzzle.php');
-$puzzle = ReadPuzzle::lineByline(__DIR__.'/puzzle.php');
+$input = Read::firstLine(__DIR__.'/puzzle.php');
+$puzzle = Read::lineByline(__DIR__.'/puzzle.php');
 unset($puzzle[0]);
 
 // separating bingoes
@@ -88,7 +88,7 @@ foreach ($solvedBingo['rows'] as $number => $isDrawed) {
     }
 }
 
-dump($sumUnmarkedNumbers * $solvedBingo['lastDraw']);
+return ($sumUnmarkedNumbers * $solvedBingo['lastDraw']);
 
 // [
 //      [

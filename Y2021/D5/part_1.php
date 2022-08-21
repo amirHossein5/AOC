@@ -88,4 +88,4 @@ foreach ($allCoordinates as $coordinates) {
 
 file_put_contents(__DIR__.'/diagram.txt', $diagram);
 
-dump($leastTwoLineOverlapCount);
+return ($leastTwoLineOverlapCount);

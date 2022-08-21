@@ -2,9 +2,9 @@
 
 require __DIR__.'/../../vendor/autoload.php';
 
-use Classes\ReadPuzzle;
+use Classes\Read;
 
-$puzzle = ReadPuzzle::contents(__DIR__.'/puzzle.php');
+$puzzle = Read::contents(__DIR__.'/puzzle.php');
 
 preg_match_all("/forward (\d+)/", $puzzle, $forwards);
 preg_match_all("/down (\d+)/", $puzzle, $downwards);
@@ -23,4 +23,4 @@ foreach ($upwards[1] as $number) {
     $depth -= $number;
 }
 
-dump($horizontal * $depth);
+return ($horizontal * $depth);

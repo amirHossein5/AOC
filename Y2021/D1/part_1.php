@@ -2,9 +2,9 @@
 
 require __DIR__.'/../../vendor/autoload.php';
 
-use Classes\ReadPuzzle;
+use Classes\Read;
 
-$puzzle = ReadPuzzle::lineByline(__DIR__.'/puzzle.php');
+$puzzle = Read::lineByline(__DIR__.'/puzzle.php');
 
 $previous = null;
 $increaseCount = 0;
@@ -16,4 +16,4 @@ foreach ($puzzle as $value) {
     $previous = $value;
 }
 
-var_dump($increaseCount);
+return $increaseCount;

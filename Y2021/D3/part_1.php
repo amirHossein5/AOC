@@ -2,9 +2,9 @@
 
 require __DIR__.'/../../vendor/autoload.php';
 
-use Classes\ReadPuzzle;
+use Classes\Read;
 
-$puzzle = ReadPuzzle::lineByline(__DIR__.'/puzzle.php');
+$puzzle = Read::lineByline(__DIR__.'/puzzle.php');
 
 $gammaR = null;
 $epsilonR = null;
@@ -30,4 +30,4 @@ for ($i = 0; $i < strlen($puzzle[0]); $i++) {
 $gammaRDecimal = bindec($gammaR);
 $epsilonRDecimal = bindec($epsilonR);
 
-dump($epsilonRDecimal * $gammaRDecimal);
+return ($epsilonRDecimal * $gammaRDecimal);
