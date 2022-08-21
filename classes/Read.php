@@ -7,7 +7,7 @@ class Read
     /**
      * Outputs puzzle line by line in array.
      *
-     * @param  string  $path [can be content]
+     * @param  string  $path  [can be content]
      */
     public static function lineByline(string $path): array
     {
