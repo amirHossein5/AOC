@@ -7,7 +7,7 @@ class ReadPuzzle
     /**
      * Outputs puzzle line by line in array.
      *
-     * @param  string $path
+     * @param  string  $path
      * @return array
      */
     public static function lineByline(string $path): array
@@ -18,7 +18,7 @@ class ReadPuzzle
     /**
      * A trimed file_get_contents.
      *
-     * @param  string $path
+     * @param  string  $path
      * @return string
      */
     public static function contents(string $path): string
@@ -29,7 +29,7 @@ class ReadPuzzle
     /**
      * Returns the first line.
      *
-     * @param  string $path
+     * @param  string  $path
      * @return string
      */
     public static function firstLine(string $path): string

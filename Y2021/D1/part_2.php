@@ -1,9 +1,10 @@
 <?php
 
-require(__DIR__ . '/../../vendor/autoload.php');
+require __DIR__.'/../../vendor/autoload.php';
 
 use Classes\ReadPuzzle;
-$puzzle = ReadPuzzle::lineByline(__DIR__ . '/puzzle.php');
+
+$puzzle = ReadPuzzle::lineByline(__DIR__.'/puzzle.php');
 
 $readKeysAfter = null;
 $firstN = null;
@@ -31,8 +32,8 @@ foreach ($puzzle as $key => $value) {
 $prevN = null;
 $isGreaterCount = 0;
 
-foreach($summedNumbers as $number){
-    !($number > $prevN && $prevN) ?: $isGreaterCount ++;
+foreach ($summedNumbers as $number) {
+    ! ($number > $prevN && $prevN) ?: $isGreaterCount++;
     $prevN = $number;
 }
 

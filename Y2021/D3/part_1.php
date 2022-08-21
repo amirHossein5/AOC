@@ -1,9 +1,10 @@
 <?php
 
-require(__DIR__ . '/../../vendor/autoload.php');
+require __DIR__.'/../../vendor/autoload.php';
 
 use Classes\ReadPuzzle;
-$puzzle = ReadPuzzle::lineByline(__DIR__ . '/puzzle.php');
+
+$puzzle = ReadPuzzle::lineByline(__DIR__.'/puzzle.php');
 
 $gammaR = null;
 $epsilonR = null;
@@ -12,10 +13,10 @@ for ($i = 0; $i < strlen($puzzle[0]); $i++) {
     $oneCount = 0;
     $zeroCount = 0;
 
-    foreach ($puzzle as $number){
+    foreach ($puzzle as $number) {
         (int) $number[$i] === 0
-            ? $zeroCount ++
-            : $oneCount ++;
+            ? $zeroCount++
+            : $oneCount++;
     }
 
     $zeroCount > $oneCount
@@ -30,4 +31,3 @@ $gammaRDecimal = bindec($gammaR);
 $epsilonRDecimal = bindec($epsilonR);
 
 dump($epsilonRDecimal * $gammaRDecimal);
-

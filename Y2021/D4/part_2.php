@@ -1,12 +1,12 @@
 <?php
 
-require(__DIR__ . '/../../vendor/autoload.php');
-require('helpers.php');
+require __DIR__.'/../../vendor/autoload.php';
+require 'helpers.php';
 
 use Classes\ReadPuzzle;
 
-$input = ReadPuzzle::firstLine(__DIR__ . '/puzzle.php');
-$puzzle = ReadPuzzle::lineByline(__DIR__ . '/puzzle.php');
+$input = ReadPuzzle::firstLine(__DIR__.'/puzzle.php');
+$puzzle = ReadPuzzle::lineByline(__DIR__.'/puzzle.php');
 unset($puzzle[0]);
 
 // separating bingoes
@@ -17,17 +17,17 @@ foreach ($puzzle as $i => $data) {
     if ($skipAfterKey >= $i && $skipAfterKey) {
         continue;
     }
-    if (!trim($data)) {
+    if (! trim($data)) {
         continue;
     }
 
     // add complete bingo to data
-    for ($in=1; $in < 5; $in++) {
-        $data .= ' ' . $puzzle[$in + $i];
+    for ($in = 1; $in < 5; $in++) {
+        $data .= ' '.$puzzle[$in + $i];
     }
 
     // to array
-    $data = array_filter(explode(' ',$data), fn ($val) => trim($val) !== '');
+    $data = array_filter(explode(' ', $data), fn ($val) => trim($val) !== '');
     $d = array_values($data);
 
     $bingoes[] = [
@@ -36,17 +36,17 @@ foreach ($puzzle as $i => $data) {
             $d[05] => false, $d[06] => false, $d[07] => false, $d[8] => false, $d[9] => false,
             $d[10] => false, $d[11] => false, $d[12] => false, $d[13] => false, $d[14] => false,
             $d[15] => false, $d[16] => false, $d[17] => false, $d[18] => false, $d[19] => false,
-            $d[20] => false, $d[21] => false, $d[22] => false, $d[23] => false, $d[24] => false
+            $d[20] => false, $d[21] => false, $d[22] => false, $d[23] => false, $d[24] => false,
         ],
         'columns' => [
             $d[00] => false, $d[05] => false, $d[10] => false, $d[15] => false, $d[20] => false,
             $d[01] => false, $d[06] => false, $d[11] => false, $d[16] => false, $d[21] => false,
             $d[02] => false, $d[07] => false, $d[12] => false, $d[17] => false, $d[22] => false,
             $d[03] => false, $d[8] => false, $d[13] => false, $d[18] => false, $d[23] => false,
-            $d[04] => false, $d[9] => false, $d[14] => false, $d[19] => false, $d[24] => false
+            $d[04] => false, $d[9] => false, $d[14] => false, $d[19] => false, $d[24] => false,
         ],
         'lastDraw' => '',
-        'drawedNumbers' => []
+        'drawedNumbers' => [],
     ];
     $skipAfterKey = $i + 4;
 }
@@ -57,7 +57,7 @@ $solvedBingo = null;
 $lastSolved = null;
 
 foreach ($input as $inputKey => $number) {
-    for ($i=0; $i < count($bingoes); $i++) {
+    for ($i = 0; $i < count($bingoes); $i++) {
         if (isset($bingoes[$i])) {
             drawBingo(by: $number, bingo: $bingoes[$i]);
         }
@@ -65,7 +65,7 @@ foreach ($input as $inputKey => $number) {
 
     // check is solved
     foreach ($bingoes as $key => $bingo) {
-        if(is_bingo_solved($bingo)) {
+        if (is_bingo_solved($bingo)) {
             $lastSolved = $bingo;
             unset($bingoes[$key]);
         }
@@ -89,10 +89,6 @@ foreach ($solvedBingo['rows'] as $number => $isDrawed) {
 }
 
 dump($sumUnmarkedNumbers * $solvedBingo['lastDraw']);
-
-
-
-
 
 // [
 //      [

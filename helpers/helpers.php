@@ -6,8 +6,9 @@
  * @param mixed params
  * @return mixed
  */
-function dd(mixed ... $params): mixed {
-    foreach($params as $param) {
+function dd(mixed ...$params): mixed
+{
+    foreach ($params as $param) {
         var_dump($param);
     }
     exit;
@@ -19,8 +20,9 @@ function dd(mixed ... $params): mixed {
  * @param mixed params
  * @return void
  */
-function dump(mixed ... $params): void {
-    foreach($params as $param) {
+function dump(mixed ...$params): void
+{
+    foreach ($params as $param) {
         var_dump($param);
     }
 }

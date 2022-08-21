@@ -1,6 +1,7 @@
 <?php
 
-function drawBingo (int $by, array &$bingo): void {
+function drawBingo(int $by, array &$bingo): void
+{
     isset($bingo['rows'][$by])
         ? $bingo['rows'][$by] = true
         : null;
@@ -11,7 +12,8 @@ function drawBingo (int $by, array &$bingo): void {
     $bingo['drawedNumbers'][] = $by;
 }
 
-function is_bingo_solved (array $bingo) {
+function is_bingo_solved(array $bingo)
+{
     $solved = false;
 
     // check for rows
@@ -19,8 +21,8 @@ function is_bingo_solved (array $bingo) {
     $drawedCount = 0;
 
     foreach ($bingo['rows'] as $number => $isDrawed) {
-        $countedRows ++;
-        ! $isDrawed ?: $drawedCount ++;
+        $countedRows++;
+        ! $isDrawed ?: $drawedCount++;
 
         if ((int) $drawedCount === 5) {
             $solved = true;
@@ -37,8 +39,8 @@ function is_bingo_solved (array $bingo) {
     $drawedCount = 0;
 
     foreach ($bingo['columns'] as $number => $isDrawed) {
-        $countedCols ++;
-        ! $isDrawed ?: $drawedCount ++;
+        $countedCols++;
+        ! $isDrawed ?: $drawedCount++;
 
         if ((int) $drawedCount === 5) {
             $solved = true;
