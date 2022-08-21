@@ -27,13 +27,13 @@ class Y2021_Test extends \Tests\TestCase
         ],
     ];
 
-    private string $pathToYear = __DIR__."/../../Y2021";
+    private string $pathToYear = __DIR__.'/../../Y2021';
 
     public function test_days()
     {
         foreach ($this->answers as $day => $parts) {
-            foreach ($parts as $part => $expectedAnswer){
-                $answer = (int) include_once($this->pathToYear . "/{$day}/{$part}.php");
+            foreach ($parts as $part => $expectedAnswer) {
+                $answer = (int) include_once $this->pathToYear."/{$day}/{$part}.php";
                 $answer === $expectedAnswer
                     ? $this->assertEquals($answer, $expectedAnswer)
                     : $this->fail(

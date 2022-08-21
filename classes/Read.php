@@ -46,7 +46,6 @@ class Read
      *
      * @param  string  $path
      * @param  string  $line
-     *
      * @return string
      */
     public static function getLine(string $path, int $line): string
@@ -60,7 +59,6 @@ class Read
      * @param  string  $path
      * @param  int  $line
      * @param  string  $content
-     *
      * @return bool|string
      */
     public static function putLine(string $path, int $line, string $content): bool|string
@@ -76,7 +74,6 @@ class Read
      *
      * @param  string  $path
      * @param  string  $content
-     *
      * @return bool|string
      */
     public static function put_contents(string $path, string $content): bool|string

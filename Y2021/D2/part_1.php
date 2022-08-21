@@ -23,4 +23,4 @@ foreach ($upwards[1] as $number) {
     $depth -= $number;
 }
 
-return ($horizontal * $depth);
+return $horizontal * $depth;

@@ -21,4 +21,4 @@ foreach ($puzzle as $value) {
     }
 }
 
-return ($horizontal * $depth);
+return $horizontal * $depth;

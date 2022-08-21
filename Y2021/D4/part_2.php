@@ -88,7 +88,7 @@ foreach ($solvedBingo['rows'] as $number => $isDrawed) {
     }
 }
 
-return ($sumUnmarkedNumbers * $solvedBingo['lastDraw']);
+return $sumUnmarkedNumbers * $solvedBingo['lastDraw'];
 
 // [
 //      [

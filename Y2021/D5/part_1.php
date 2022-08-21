@@ -35,7 +35,7 @@ foreach ($puzzle as $coordinates) {
             for ($i = 0; $i <= $minusResult; $i++) {
                 $allCoordinates[] = [
                     'x' => $coordinates[1]['x'] + $i,
-                    'y' => $coordinates[1]['y']
+                    'y' => $coordinates[1]['y'],
                 ];
             }
         } else {
@@ -44,7 +44,7 @@ foreach ($puzzle as $coordinates) {
             for ($i = 0; $i <= $minusResult; $i++) {
                 $allCoordinates[] = [
                     'x' => $coordinates[1]['x'],
-                    'y' => $coordinates[1]['y'] + $i
+                    'y' => $coordinates[1]['y'] + $i,
                 ];
             }
         }
@@ -56,7 +56,7 @@ file_put_contents(__DIR__.'/diagram.txt', '');
 
 // append horizontally
 for ($i = 0; $i <= $maxNumber; $i++) {
-    file_put_contents(__DIR__.'/diagram.txt', file_get_contents(__DIR__.'/diagram.txt') . '.');
+    file_put_contents(__DIR__.'/diagram.txt', file_get_contents(__DIR__.'/diagram.txt').'.');
 }
 // append vertically
 $appendLine = explode(PHP_EOL, file_get_contents(__DIR__.'/diagram.txt'))[0];
@@ -79,13 +79,13 @@ foreach ($allCoordinates as $coordinates) {
 
     $row[$x] === '.'
         ? $row[$x] = 1
-        : $row[$x] ++;
+        : $row[$x]++;
 
-    $row[$x] !== 2 ?: $leastTwoLineOverlapCount ++;
+    $row[$x] !== 2 ?: $leastTwoLineOverlapCount++;
 
     $diagram = Read::putLine($diagram, line: $y, content: implode('', $row));
 }
 
 file_put_contents(__DIR__.'/diagram.txt', $diagram);
 
-return ($leastTwoLineOverlapCount);
+return $leastTwoLineOverlapCount;
