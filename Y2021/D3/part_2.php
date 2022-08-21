@@ -20,12 +20,12 @@ for ($i = 0; $i < strlen($filtered[0]); $i++) {
     $zeroCount = 0;
 
     foreach ($filtered as $number) {
-        (int) $number[$i] === 0
+        0 === (int) $number[$i]
             ? $zeroCount++
             : $oneCount++;
     }
 
-    if ($zeroCount === 0 or $oneCount === 0) {
+    if (0 === $zeroCount or 0 === $oneCount) {
         continue;
     } elseif ($zeroCount === $oneCount) {
         $filtered = filterHasChar(indexOf: $i, char: '1', items: $filtered);
@@ -51,12 +51,12 @@ for ($i = 0; $i < strlen($filtered[0]); $i++) {
     $zeroCount = 0;
 
     foreach ($filtered as $number) {
-        (int) $number[$i] === 0
+        0 === (int) $number[$i]
             ? $zeroCount++
             : $oneCount++;
     }
 
-    if ($zeroCount === 0 or $oneCount === 0) {
+    if (0 === $zeroCount or 0 === $oneCount) {
         continue;
     } elseif ($zeroCount === $oneCount) {
         $filtered = filterHasChar(indexOf: $i, char: '0', items: $filtered);
@@ -69,5 +69,4 @@ for ($i = 0; $i < strlen($filtered[0]); $i++) {
 
 $CO2GR = $filtered[0];
 
-return
-    bindec($CO2GR) * bindec($oxygenGR);
+return bindec($CO2GR) * bindec($oxygenGR);

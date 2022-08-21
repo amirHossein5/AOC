@@ -27,7 +27,7 @@ foreach ($puzzle as $i => $data) {
     }
 
     // to array
-    $data = array_filter(explode(' ', $data), fn ($val) => trim($val) !== '');
+    $data = array_filter(explode(' ', $data), fn ($val) => '' !== trim($val));
     $d = array_values($data);
 
     $bingoes[] = [

@@ -24,11 +24,11 @@ function is_bingo_solved(array $bingo)
         $countedRows++;
         ! $isDrawed ?: $drawedCount++;
 
-        if ((int) $drawedCount === 5) {
+        if (5 === (int) $drawedCount) {
             $solved = true;
             break;
         }
-        if ($countedRows === 5) {
+        if (5 === $countedRows) {
             $countedRows = 0;
             $drawedCount = 0;
         }
@@ -42,11 +42,11 @@ function is_bingo_solved(array $bingo)
         $countedCols++;
         ! $isDrawed ?: $drawedCount++;
 
-        if ((int) $drawedCount === 5) {
+        if (5 === (int) $drawedCount) {
             $solved = true;
             break;
         }
-        if ($countedCols === 5) {
+        if (5 === $countedCols) {
             $countedCols = 0;
             $drawedCount = 0;
         }

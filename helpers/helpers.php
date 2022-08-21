@@ -4,7 +4,6 @@
  * Vardump and die.
  *
  * @param mixed params
- * @return mixed
  */
 function dd(mixed ...$params): mixed
 {
@@ -18,7 +17,6 @@ function dd(mixed ...$params): mixed
  * Alias of var_dump.
  *
  * @param mixed params
- * @return void
  */
 function dump(mixed ...$params): void
 {

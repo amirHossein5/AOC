@@ -14,7 +14,7 @@ for ($i = 0; $i < strlen($puzzle[0]); $i++) {
     $zeroCount = 0;
 
     foreach ($puzzle as $number) {
-        (int) $number[$i] === 0
+        0 === (int) $number[$i]
             ? $zeroCount++
             : $oneCount++;
     }

@@ -27,7 +27,7 @@ foreach ($puzzle as $coordinates) {
             $coordinates = getCoordinatesArray($numbers[2], $numbers[3], $numbers[0], $numbers[1]);
         }
 
-        /** between cordinates */
+        /* between cordinates */
         // horizontally-> 0,9->5,9
         if ($coordinates[2]['x'] - $coordinates[1]['x'] > 0) {
             $minusResult = $coordinates[2]['x'] - $coordinates[1]['x'];
@@ -51,7 +51,7 @@ foreach ($puzzle as $coordinates) {
     }
 }
 
-/** draw vanilla . diagram */
+/* draw vanilla . diagram */
 file_put_contents(__DIR__.'/diagram.txt', '');
 
 // append horizontally
@@ -77,11 +77,11 @@ foreach ($allCoordinates as $coordinates) {
 
     $row = str_split(Read::getLine($diagram, line: $y));
 
-    $row[$x] === '.'
+    '.' === $row[$x]
         ? $row[$x] = 1
         : $row[$x]++;
 
-    $row[$x] !== 2 ?: $leastTwoLineOverlapCount++;
+    2 !== $row[$x] ?: $leastTwoLineOverlapCount++;
 
     $diagram = Read::putLine($diagram, line: $y, content: implode('', $row));
 }

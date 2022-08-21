@@ -7,9 +7,8 @@ class HTTP
     /**
      * @description Make HTTP-GET call
      *
-     * @param    $url
-     * @param  array  $params
-     * @return      HTTP-Response body or an empty string if the request fails or is empty
+     * @param $url
+     * @return HTTP-Response body or an empty string if the request fails or is empty
      */
     public static function HTTPGet($url, array $params)
     {
@@ -26,9 +25,8 @@ class HTTP
     /**
      * @description Make HTTP-POST call
      *
-     * @param    $url
-     * @param  array  $params
-     * @return      HTTP-Response body or an empty string if the request fails or is empty
+     * @param $url
+     * @return HTTP-Response body or an empty string if the request fails or is empty
      */
     public static function HTTPPost($url, array $params)
     {
@@ -48,9 +46,8 @@ class HTTP
     /**
      * @description Make HTTP-PUT call
      *
-     * @param    $url
-     * @param  array  $params
-     * @return      HTTP-Response body or an empty string if the request fails or is empty
+     * @param $url
+     * @return HTTP-Response body or an empty string if the request fails or is empty
      */
     public static function HTTPPut($url, array $params)
     {
@@ -70,9 +67,8 @@ class HTTP
     /**
      * @category Make HTTP-DELETE call
      *
-     * @param    $url
-     * @param  array  $params
-     * @return   HTTP-Response body or an empty string if the request fails or is empty
+     * @param $url
+     * @return HTTP-Response body or an empty string if the request fails or is empty
      */
     public static function HTTPDelete($url, array $params)
     {

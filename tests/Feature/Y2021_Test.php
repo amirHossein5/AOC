@@ -29,7 +29,7 @@ class Y2021_Test extends \Tests\TestCase
 
     private string $pathToYear = __DIR__.'/../../Y2021';
 
-    public function test_days()
+    public function testDays()
     {
         foreach ($this->answers as $day => $parts) {
             foreach ($parts as $part => $expectedAnswer) {

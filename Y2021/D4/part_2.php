@@ -27,7 +27,7 @@ foreach ($puzzle as $i => $data) {
     }
 
     // to array
-    $data = array_filter(explode(' ', $data), fn ($val) => trim($val) !== '');
+    $data = array_filter(explode(' ', $data), fn ($val) => '' !== trim($val));
     $d = array_values($data);
 
     $bingoes[] = [
@@ -69,7 +69,7 @@ foreach ($input as $inputKey => $number) {
             $lastSolved = $bingo;
             unset($bingoes[$key]);
         }
-        if (count($bingoes) === 0) {
+        if (0 === count($bingoes)) {
             break 2;
         }
     }

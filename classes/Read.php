@@ -8,7 +8,6 @@ class Read
      * Outputs puzzle line by line in array.
      *
      * @param  string  $path [can be content]
-     * @return array
      */
     public static function lineByline(string $path): array
     {
@@ -17,9 +16,6 @@ class Read
 
     /**
      * A trimed file_get_contents.
-     *
-     * @param  string  $path
-     * @return string
      */
     public static function contents(string $path): string
     {
@@ -32,9 +28,6 @@ class Read
 
     /**
      * Returns the first line.
-     *
-     * @param  string  $path
-     * @return string
      */
     public static function firstLine(string $path): string
     {
@@ -44,9 +37,7 @@ class Read
     /**
      * Returns the intended line.
      *
-     * @param  string  $path
      * @param  string  $line
-     * @return string
      */
     public static function getLine(string $path, int $line): string
     {
@@ -55,11 +46,6 @@ class Read
 
     /**
      * Replaces intended line of content.
-     *
-     * @param  string  $path
-     * @param  int  $line
-     * @param  string  $content
-     * @return bool|string
      */
     public static function putLine(string $path, int $line, string $content): bool|string
     {
@@ -71,10 +57,6 @@ class Read
 
     /**
      * Replaces and puts intended content.
-     *
-     * @param  string  $path
-     * @param  string  $content
-     * @return bool|string
      */
     public static function put_contents(string $path, string $content): bool|string
     {
