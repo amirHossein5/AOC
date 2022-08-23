@@ -1,12 +1,12 @@
 <?php
 
-require __DIR__.'/../../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 require_once 'helpers.php';
 
 use Classes\Read;
 
-$input = Read::firstLine(__DIR__.'/puzzle.php');
-$puzzle = Read::lineByline(__DIR__.'/puzzle.php');
+$input = Read::firstLine(__DIR__ . '/puzzle.php');
+$puzzle = Read::lineByline(__DIR__ . '/puzzle.php');
 unset($puzzle[0]);
 
 // separating bingoes
@@ -23,7 +23,7 @@ foreach ($puzzle as $i => $data) {
 
     // add complete bingo to data
     for ($in = 1; $in < 5; $in++) {
-        $data .= ' '.$puzzle[$in + $i];
+        $data .= ' ' . $puzzle[$in + $i];
     }
 
     // to array

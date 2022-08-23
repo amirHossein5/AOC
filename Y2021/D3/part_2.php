@@ -1,11 +1,11 @@
 <?php
 
-require __DIR__.'/../../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 require 'helpers.php';
 
 use Classes\Read;
 
-$puzzle = Read::lineByline(__DIR__.'/puzzle.php');
+$puzzle = Read::lineByline(__DIR__ . '/puzzle.php');
 
 // oxygen
 $filtered = $puzzle;
