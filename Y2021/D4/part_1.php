@@ -81,6 +81,7 @@ foreach ($solvedBingo['rows'] as $number => $isDrawed) {
 if (env() !== 'testing') {
     var_dump($sumUnmarkedNumbers * $solvedBingo['lastDraw']);
 }
+
 return $sumUnmarkedNumbers * $solvedBingo['lastDraw'];
 
 // [

@@ -3,7 +3,7 @@
 /**
  * Vardump and die.
  *
- * @param mixed $params
+ * @param  mixed  $params
  * @return mixed
  */
 function dd(mixed ...$params): mixed
@@ -17,7 +17,7 @@ function dd(mixed ...$params): mixed
 /**
  * Alias of var_dump.
  *
- * @param mixed $params
+ * @param  mixed  $params
  * @return void
  */
 function dump(mixed ...$params): void
@@ -30,7 +30,7 @@ function dump(mixed ...$params): void
 /**
  * Alias of Collect class.
  *
- * @param mixed $param
+ * @param  mixed  $param
  * @return \Classes\Collect
  */
 function collect(array|\Classes\Collect $param): \Classes\Collect
@@ -68,6 +68,7 @@ function flatten($array, $depth = null): array
     return $result;
 }
 
-function env(): string {
+function env(): string
+{
     return getenv('env');
 }

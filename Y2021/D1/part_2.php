@@ -40,4 +40,5 @@ foreach ($summedNumbers as $number) {
 if (env() !== 'testing') {
     var_dump($isGreaterCount);
 }
+
 return $isGreaterCount;
