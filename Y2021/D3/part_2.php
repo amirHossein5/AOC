@@ -72,4 +72,5 @@ $CO2GR = $filtered[0];
 if (env() !== 'testing') {
     var_dump(bindec($CO2GR) * bindec($oxygenGR));
 }
+
 return bindec($CO2GR) * bindec($oxygenGR);

@@ -4,7 +4,6 @@ require __DIR__.'/../../vendor/autoload.php';
 require_once __DIR__.'/helpers.php';
 
 use Classes\Read;
-use Classes\Benchmark;
 
 $puzzle = Read::lineByline(__DIR__.'/puzzle.txt');
 
@@ -92,4 +91,5 @@ if (env() !== 'testing') {
 
     var_dump($leastTwoLineOverlapCount);
 }
+
 return $leastTwoLineOverlapCount;

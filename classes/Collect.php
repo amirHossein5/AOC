@@ -11,12 +11,13 @@ class Collect
 
     /**
      * Collect constructor.
-     * @param array|self $param.
+     *
+     * @param  array|self  $param.
      * @return self
      */
     public function Collect(self|array $param): self
     {
-        $this->param = $param instanceOf self
+        $this->param = $param instanceof self
             ? $param->getParam()
             : $param;
 
@@ -25,6 +26,7 @@ class Collect
 
     /**
      * Returns parameter.
+     *
      * @return array
      */
     public function getParam(): array

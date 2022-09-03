@@ -29,19 +29,19 @@ foreach ($puzzle as $coordinates) {
         ];
     }
     // on 45 dgree
-    if($orderedNumbers[1] + abs($orderedNumbers[2] - $orderedNumbers[0]) === (int) $orderedNumbers[3]) {
+    if ($orderedNumbers[1] + abs($orderedNumbers[2] - $orderedNumbers[0]) === (int) $orderedNumbers[3]) {
         $coordinates = getCoordinatesArray($orderedNumbers[0], $orderedNumbers[1], $orderedNumbers[2], $orderedNumbers[3]);
 
         $allCoordinates[] = [
             'x' => $coordinates[1]['x'],
             'y' => $coordinates[1]['y'],
         ];
-        $allCoordinates[] =[
+        $allCoordinates[] = [
             'x' => $coordinates[2]['x'],
             'y' => $coordinates[2]['y'],
         ];
 
-        for ($i=1; $i < abs($coordinates[2]['x']-$coordinates[1]['x']); $i++) {
+        for ($i = 1; $i < abs($coordinates[2]['x'] - $coordinates[1]['x']); $i++) {
             $allCoordinates[] = [
                 'x' => $coordinates[1]['x'] > $coordinates[2]['x']
                     ? $coordinates[1]['x'] - $i
@@ -71,14 +71,14 @@ foreach ($puzzle as $coordinates) {
             'x' => $coordinates[1]['x'],
             'y' => $coordinates[1]['y'],
         ];
-        $allCoordinates[] =[
+        $allCoordinates[] = [
             'x' => $coordinates[2]['x'],
             'y' => $coordinates[2]['y'],
         ];
 
         // horizontally-> 0,9->5,9
         if ($coordinates[2]['x'] - $coordinates[1]['x'] > 0 and $coordinates[2]['y'] === $coordinates[1]['y']) {
-            for ($i=1; $i < abs($coordinates[2]['x']-$coordinates[1]['x']); $i++) {
+            for ($i = 1; $i < abs($coordinates[2]['x'] - $coordinates[1]['x']); $i++) {
                 $allCoordinates[] = [
                     'x' => $coordinates[1]['x'] + $i,
                     'y' => $coordinates[1]['y'],
@@ -86,7 +86,7 @@ foreach ($puzzle as $coordinates) {
             }
         } else {
             // vertically
-            if ($numbers[1] > $numbers[3]){
+            if ($numbers[1] > $numbers[3]) {
                 $orderedNumbers = [
                     $numbers[2],
                     $numbers[3],
@@ -97,7 +97,7 @@ foreach ($puzzle as $coordinates) {
 
             $coordinates = getCoordinatesArray($orderedNumbers[0], $orderedNumbers[1], $orderedNumbers[2], $orderedNumbers[3]);
 
-            for ($i=1; $i < abs($coordinates[2]['y']-$coordinates[1]['y']); $i++) {
+            for ($i = 1; $i < abs($coordinates[2]['y'] - $coordinates[1]['y']); $i++) {
                 $allCoordinates[] = [
                     'x' => $coordinates[1]['x'],
                     'y' => $coordinates[1]['y'] + $i,
@@ -142,10 +142,10 @@ foreach ($allCoordinates as $coordinates) {
     $diagram[$y] = implode('', $row);
 }
 
-
 if (env() !== 'testing') {
     file_put_contents(__DIR__.'/diagram.txt', $diagram);
 
     var_dump($leastTwoLineOverlapCount);
 }
+
 return $leastTwoLineOverlapCount;
