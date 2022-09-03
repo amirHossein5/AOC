@@ -38,8 +38,9 @@ class Read
      * Returns the intended line.
      *
      * @param  string  $line
+     * @return string|null
      */
-    public static function getLine(string $path, int $line): string
+    public static function getLine(string $path, int $line): string|null
     {
         return self::lineByline($path)[$line];
     }

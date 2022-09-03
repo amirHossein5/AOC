@@ -30,4 +30,8 @@ for ($i = 0; $i < strlen($puzzle[0]); $i++) {
 $gammaRDecimal = bindec($gammaR);
 $epsilonRDecimal = bindec($epsilonR);
 
+if (env() !== 'testing') {
+    var_dump($epsilonRDecimal * $gammaRDecimal);
+}
+
 return $epsilonRDecimal * $gammaRDecimal;

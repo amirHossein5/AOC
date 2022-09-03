@@ -16,4 +16,8 @@ foreach ($puzzle as $value) {
     $previous = $value;
 }
 
+if (env() !== 'testing') {
+    var_dump($increaseCount);
+}
+
 return $increaseCount;

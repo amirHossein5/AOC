@@ -23,4 +23,8 @@ foreach ($upwards[1] as $number) {
     $depth -= $number;
 }
 
+if (env() !== 'testing') {
+    var_dump($horizontal * $depth);
+}
+
 return $horizontal * $depth;

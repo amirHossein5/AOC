@@ -7,7 +7,7 @@ class Y2021_Test extends \Tests\TestCase
     private array $answers = [
         'D5' => [
             'part_1' => 7269,
-            // 'part_2' => '',
+            'part_2' => 21140,
         ],
         'D4' => [
             'part_1' => 6592,
