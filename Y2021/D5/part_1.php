@@ -1,9 +1,10 @@
 <?php
 
 require __DIR__.'/../../vendor/autoload.php';
-require __DIR__.'/helpers.php';
+require_once __DIR__.'/helpers.php';
 
 use Classes\Read;
+use Classes\Benchmark;
 
 $puzzle = Read::lineByline(__DIR__.'/puzzle.txt');
 
@@ -69,13 +70,13 @@ for ($i = 0; $i < $maxNumber; $i++) {
 
 /** draw numbers */
 $leastTwoLineOverlapCount = 0;
-$diagram = Read::contents(__DIR__.'/diagram.txt');
+$diagram = Read::lineByline(__DIR__.'/diagram.txt');
 
 foreach ($allCoordinates as $coordinates) {
     $x = $coordinates['x'];
     $y = $coordinates['y'];
 
-    $row = str_split(Read::getLine($diagram, line: $y));
+    $row = str_split($diagram[$y]);
 
     '.' === $row[$x]
         ? $row[$x] = 1
@@ -83,9 +84,12 @@ foreach ($allCoordinates as $coordinates) {
 
     2 !== $row[$x] ?: $leastTwoLineOverlapCount++;
 
-    $diagram = Read::putLine($diagram, line: $y, content: implode('', $row));
+    $diagram[$y] = implode('', $row);
 }
 
-file_put_contents(__DIR__.'/diagram.txt', $diagram);
+if (env() !== 'testing') {
+    file_put_contents(__DIR__.'/diagram.txt', $diagram);
 
+    var_dump($leastTwoLineOverlapCount);
+}
 return $leastTwoLineOverlapCount;

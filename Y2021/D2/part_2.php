@@ -21,4 +21,8 @@ foreach ($puzzle as $value) {
     }
 }
 
+if (env() !== 'testing') {
+    var_dump($horizontal * $depth);
+}
+
 return $horizontal * $depth;
