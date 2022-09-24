@@ -5,6 +5,7 @@ namespace AOC\Console;
 class GeneratorCommand extends Command
 {
     private string $generatedFilePath;
+
     private string $generatedFileNamespace;
 
     public function handle(): int

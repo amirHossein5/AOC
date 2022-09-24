@@ -7,9 +7,11 @@ use Tests\Traits\HasAdditionalTests;
 
 class TestCase extends \PHPUnit\Framework\TestCase
 {
-    use HasFormattedOutput, HasAdditionalTests;
+    use HasFormattedOutput;
+    use HasAdditionalTests;
 
     protected array $unlinkFilesForTesting = [];
+
     protected array $unlinkFoldersForTesting = [];
 
     public function setUp(): void
