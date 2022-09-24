@@ -11,7 +11,7 @@ class GeneratorCommand extends Command
     public function handle(): int
     {
         $this->generatedFileClassName = array_slice(explode('/', $this->argument('name')), -1)[0];
-        $this->generatedFilePath = $this->namespaceToPath($this->getDefaultNamespace('AOC'))."/{$this->argument('name')}.php";
+        $this->generatedFilePath = pathable($this->namespaceToPath($this->getDefaultNamespace('AOC'))."/{$this->argument('name')}.php");
         $this->generatedFileNamespace = $this->pathToNamespace(str_replace($this->getClassName().'.php', '', $this->getPath()));
 
         if (file_exists($this->getPath())) {
@@ -63,7 +63,7 @@ class GeneratorCommand extends Command
 
     private function namespaceToPath(string $namespace): string
     {
-        return pathable('/'.trim(str_replace('\\', '/', str_replace('AOC', trim(src_path(), '/'), $namespace)), '/'));
+        return pathable(rtrim(str_replace('\\', '/', str_replace('AOC', src_path(), $namespace)), '/'));
     }
 
     private function pathToNamespace(string $path): string
