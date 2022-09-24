@@ -3,7 +3,7 @@ Advent Of Code's codes.
 ## Usage
 Clone repository and:
 ```sh
-composer dump-autoload
+composer install
 ```
 Run it:
 ```sh
