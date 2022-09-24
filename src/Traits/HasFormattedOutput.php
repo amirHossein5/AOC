@@ -7,7 +7,8 @@ trait HasFormattedOutput
     protected function write(string $string): void
     {
         if (! isset($this->output)) {
-            echo($string);
+            echo $string;
+
             return;
         }
         $this->output->write($string);
@@ -16,7 +17,8 @@ trait HasFormattedOutput
     protected function line(string $string): void
     {
         if (! isset($this->output)) {
-            echo($string.PHP_EOL);
+            echo $string.PHP_EOL;
+
             return;
         }
         $this->output->writeln($string);

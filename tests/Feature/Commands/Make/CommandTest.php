@@ -23,7 +23,6 @@ class CommandTest extends TestCase
         $this->unlinkFoldersForTesting[] = src_path().'/Console/Commands/Test1/Test2';
         $this->unlinkFoldersForTesting[] = src_path().'/Console/Commands/Test1';
 
-
         $this->assertFileDoesNotExist($testCommandPath);
 
         $this->command('php aoc make:command Test1/Test2/TestingCommand');
@@ -41,7 +40,7 @@ class CommandTest extends TestCase
 
         $this->assertStrContains(
             $this->command('php aoc make:command TestingCommand'),
-            "File already exists In: ".$testCommandPath
+            'File already exists In: '.$testCommandPath
         );
     }
 

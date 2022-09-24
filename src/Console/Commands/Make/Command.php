@@ -30,7 +30,7 @@ class Command extends GeneratorCommand
 
         file_put_contents($this->getPath(), $generatedFileContents);
 
-        $this->success("Command " . $this->argument('name') ." Created successfully.");
+        $this->success('Command '.$this->argument('name').' Created successfully.');
 
         return Command::SUCCESS;
     }
@@ -42,7 +42,7 @@ class Command extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\\Console\\Commands';
+        return $rootNamespace.'\\Console\\Commands';
     }
 
     private function setVariables(string &$generatedFileContents): void

@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use AOC\Services\Read;
-
 class Y2021_Test extends \Tests\TestCase
 {
     private array $answers = [
@@ -35,7 +33,7 @@ class Y2021_Test extends \Tests\TestCase
     {
         parent::setUp();
 
-        $this->pathToYear = src_path() . '/AOC/Y2021';
+        $this->pathToYear = src_path().'/AOC/Y2021';
     }
 
     public function test_days()
@@ -44,7 +42,7 @@ class Y2021_Test extends \Tests\TestCase
         $this->warn('Y2021');
 
         foreach (array_reverse($this->answers) as $day => $parts) {
-            $this->write($this->getColor('success') . "day ".str_replace('D', '', $day)."-> ". $this->endColor());
+            $this->write($this->getColor('success').'day '.str_replace('D', '', $day).'-> '.$this->endColor());
 
             foreach ($parts as $part => $expectedAnswer) {
                 $answer = (int) include_once $this->pathToYear."/{$day}/{$part}.php";
@@ -55,7 +53,7 @@ class Y2021_Test extends \Tests\TestCase
                     );
                 }
 
-                $this->write($this->getColor('success') . "P". str_replace('part_', '', $part) ." ".$this->endColor());
+                $this->write($this->getColor('success').'P'.str_replace('part_', '', $part).' '.$this->endColor());
                 $this->assertEquals($answer, $expectedAnswer);
             }
 

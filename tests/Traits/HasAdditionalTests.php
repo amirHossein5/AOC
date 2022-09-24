@@ -10,6 +10,7 @@ trait HasAdditionalTests
             str_contains($haystack, $needle)
         );
     }
+
     protected function assertStrDoesNotContain(string $haystack, string $needle)
     {
         $this->assertFalse(

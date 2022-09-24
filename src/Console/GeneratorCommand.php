@@ -2,8 +2,6 @@
 
 namespace AOC\Console;
 
-use AOC\Console\Command;
-
 class GeneratorCommand extends Command
 {
     private string $generatedFilePath;
@@ -16,11 +14,11 @@ class GeneratorCommand extends Command
         $this->generatedFileNamespace = $this->pathToNamespace(str_replace($this->getClassName().'.php', '', $this->getPath()));
 
         if (file_exists($this->getPath())) {
-            $this->error("File already exists In: ".$this->getPath());
+            $this->error('File already exists In: '.$this->getPath());
             exit;
         }
 
-        if (!is_dir($dir = dirname($this->getPath()))) {
+        if (! is_dir($dir = dirname($this->getPath()))) {
             mkdir($dir, 0777, true);
         }
 
