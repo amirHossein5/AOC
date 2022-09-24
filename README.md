@@ -7,8 +7,7 @@ composer dump-autoload
 ```
 Run it:
 ```sh
-// Year/day/part_number.php
-php Y2021/D1/part_1.php
+php aoc run 2021 1 1 // year day part_number
 ```
 
-> Don't forget to put your puzzle in ```puzzle.php```
+Put your puzzle in ```puzzle.php``` of day folder.

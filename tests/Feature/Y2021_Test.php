@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use AOC\Services\Read;
+
 class Y2021_Test extends \Tests\TestCase
 {
     private array $answers = [
@@ -27,19 +29,37 @@ class Y2021_Test extends \Tests\TestCase
         ],
     ];
 
-    private string $pathToYear = __DIR__.'/../../Y2021';
+    private string $pathToYear;
 
-    public function testDays()
+    public function setUp(): void
     {
-        foreach ($this->answers as $day => $parts) {
+        parent::setUp();
+
+        $this->pathToYear = src_path() . '/AOC/Y2021';
+    }
+
+    public function test_days()
+    {
+        $this->newLine();
+        $this->warn('Y2021');
+
+        foreach (array_reverse($this->answers) as $day => $parts) {
+            $this->write($this->getColor('success') . "day ".str_replace('D', '', $day)."-> ". $this->endColor());
+
             foreach ($parts as $part => $expectedAnswer) {
                 $answer = (int) include_once $this->pathToYear."/{$day}/{$part}.php";
-                $answer === $expectedAnswer
-                    ? $this->assertEquals($answer, $expectedAnswer)
-                    : $this->fail(
+
+                if ($answer !== $expectedAnswer) {
+                    $this->fail(
                         "{{$day}/{$part}.php} failed. expectedAnswer: {$expectedAnswer}, realAnswer: {$answer}."
                     );
+                }
+
+                $this->write($this->getColor('success') . "P". str_replace('part_', '', $part) ." ".$this->endColor());
+                $this->assertEquals($answer, $expectedAnswer);
             }
+
+            $this->newLine();
         }
     }
 }
