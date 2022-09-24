@@ -19,12 +19,10 @@ class Day extends Command
             mkdir($dir, 0777, true);
         }
 
-        collect(['part_1.php','part_2.php'])->each(fn ($file) =>
-            $this->createFile(filePath: pathable("{$dir}/{$file}"))
+        collect(['part_1.php', 'part_2.php'])->each(fn ($file) => $this->createFile(filePath: pathable("{$dir}/{$file}"))
         );
 
-        collect(['puzzle.txt'])->each(fn ($file) =>
-            $this->createFile(
+        collect(['puzzle.txt'])->each(fn ($file) => $this->createFile(
                 filePath: pathable("{$dir}/{$file}"),
                 hasStub: false,
             )
@@ -44,6 +42,7 @@ class Day extends Command
 
         if (file_exists($filePath)) {
             $this->error("File {$fileName} already exists.");
+
             return;
         }
 

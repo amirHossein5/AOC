@@ -2,7 +2,7 @@
 
 use AOC\Services\Read;
 
-require_once(__DIR__.'/helpers.php');
+require_once __DIR__.'/helpers.php';
 
 $puzzle = Read::firstLine(__DIR__.'/puzzle.txt');
 $days = 256;
@@ -17,7 +17,7 @@ $newDayFishes = [];
 
 initLanterFishAges($lanterFishes, ages: explode(',', $puzzle));
 
-for ($i=1; $i <= $days; $i++) {
+for ($i = 1; $i <= $days; $i++) {
     initLanterFishAges($newDayFishes, ages: []);
 
     foreach ($lanterFishes as $age => $countOfThem) {
@@ -27,7 +27,7 @@ for ($i=1; $i <= $days; $i++) {
                 $newDayFishes[$newLanterFishAge] = $lanterFishes[$age];
             }
         } else {
-            $newDayFishes[$age-1] = $lanterFishes[$age] + $newDayFishes[$age-1];
+            $newDayFishes[$age - 1] = $lanterFishes[$age] + $newDayFishes[$age - 1];
         }
     }
     $lanterFishes = $newDayFishes;

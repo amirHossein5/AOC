@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Commands\Make;
 
-use AOC\Services\Read;
 use Tests\TestCase;
 
 class AOCDayTest extends TestCase

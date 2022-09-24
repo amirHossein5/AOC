@@ -2,7 +2,7 @@
 
 namespace Tests\Traits;
 
-Trait TestableDays
+trait TestableDays
 {
     public function test_days()
     {
