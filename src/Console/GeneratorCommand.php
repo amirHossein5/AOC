@@ -63,11 +63,11 @@ class GeneratorCommand extends Command
 
     private function namespaceToPath(string $namespace): string
     {
-        return '/'.trim(str_replace('\\', '/', str_replace('AOC', trim(src_path(), '/'), $namespace)), '/');
+        return pathable('/'.trim(str_replace('\\', '/', str_replace('AOC', trim(src_path(), '/'), $namespace)), '/'));
     }
 
     private function pathToNamespace(string $path): string
     {
-        return trim(str_replace('/', '\\', str_replace(trim(src_path(), '/'), 'AOC', $path)), '\\');
+        return pathable(trim(str_replace('/', '\\', str_replace(trim(src_path(), '/'), 'AOC', $path)), '\\'));
     }
 }

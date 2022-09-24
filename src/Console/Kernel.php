@@ -17,9 +17,9 @@ class Kernel
 
         $path = realpath(trim($path));
 
-        foreach ([...glob("{$path}/**/*.php"), ...glob("{$path}/*.php")] as $commandClass) {
+        foreach ([...glob(pathable("{$path}/**/*.php")), ...glob(pathable("{$path}/*.php"))] as $commandClass) {
             $application->add(
-                new (str_replace(
+                new (pathable(str_replace(
                     '/',
                     '\\',
                     str_replace(
@@ -27,7 +27,7 @@ class Kernel
                         '',
                         str_replace(src_path(), 'AOC', $commandClass)
                     )
-                )
+                ))
                 )
             );
         }
