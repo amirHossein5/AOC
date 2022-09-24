@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Commands\Make;
 
+use AOC\Services\Read;
 use Tests\TestCase;
 
 class CommandTest extends TestCase
@@ -41,6 +42,22 @@ class CommandTest extends TestCase
         $this->assertStrContains(
             $this->command('php aoc make:command TestingCommand'),
             'File already exists In: '.$testCommandPath
+        );
+    }
+
+    public function test_stub_variables_are_setted()
+    {
+        $this->unlinkFilesForTesting[] = $testCommandPath = src_path().'/Console/Commands/TestingCommand.php';
+
+        $this->assertFileDoesNotExist($testCommandPath);
+
+        $this->command('php aoc make:command TestingCommand');
+
+        $this->assertFileExists($testCommandPath);
+
+        $this->assertStrDoesNotContain(
+            Read::contents($testCommandPath),
+            ['namespace', 'class', 'command']
         );
     }
 

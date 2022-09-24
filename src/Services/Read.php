@@ -20,7 +20,7 @@ class Read
     public static function contents(string $path): string
     {
         if (is_writable($path)) {
-            return trim(file_get_contents($path));
+            return trim(file_get_contents(pathable($path)));
         } else {
             return trim($path);
         }
@@ -62,7 +62,7 @@ class Read
     public static function put_contents(string $path, string $content): bool|string
     {
         if (is_writable($path)) {
-            return file_put_contents($path, $content);
+            return file_put_contents(pathable($path), $content);
         } else {
             return $content;
         }
