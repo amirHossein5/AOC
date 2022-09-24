@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: ['8.0', '8.1']
+        php: ['8.1']
 
     steps:
       - name: Checkout code
@@ -39,7 +39,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: ['8.0', '8.1']
+        php: ['8.1']
         
     runs-on: macos-latest
 
@@ -65,7 +65,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: ['8.0', '8.1']
+        php: ['8.1']
 
     runs-on: windows-2019
 
