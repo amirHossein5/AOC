@@ -10,7 +10,7 @@ trait TestableDays
         $this->warn('Y2021');
 
         foreach (array_reverse($this->answers) as $day => $parts) {
-            $this->write($this->getColor('success').'day '.str_replace('D', '', $day).'-> '.$this->endColor());
+            $this->write($this->color('day '.str_replace('D', '', $day).'-> ', 'success'));
 
             foreach ($parts as $part => $expectedAnswer) {
                 $answer = (int) include_once $this->getPathToYear()."/{$day}/{$part}.php";
@@ -21,7 +21,7 @@ trait TestableDays
                     );
                 }
 
-                $this->write($this->getColor('success').'P'.str_replace('part_', '', $part).' '.$this->endColor());
+                $this->write($this->color('P'.str_replace('part_', '', $part).' ', 'success'));
                 $this->assertEquals($answer, $expectedAnswer);
             }
 

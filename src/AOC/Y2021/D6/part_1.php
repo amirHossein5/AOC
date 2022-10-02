@@ -21,7 +21,7 @@ for ($i = 1; $i <= $days; $i++) {
     }
 }
 
-if (env() !== 'testing') {
+if (getenv('env') !== 'testing') {
     var_dump(count($lanterFishes));
 }
 

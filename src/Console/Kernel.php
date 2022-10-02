@@ -2,7 +2,9 @@
 
 namespace AOC\Console;
 
-use Symfony\Component\Console\Application;
+use Illuminate\Console\Application;
+use Illuminate\Container\Container;
+use Illuminate\Events\Dispatcher;
 
 class Kernel
 {
@@ -13,7 +15,7 @@ class Kernel
 
     public function load(string $path): void
     {
-        $application = new Application();
+        $application = new Application(new Container, new Dispatcher, '9');
 
         $path = realpath(trim($path));
 

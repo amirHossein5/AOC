@@ -35,7 +35,7 @@ for ($i = 1; $i <= $days; $i++) {
 
 $lanterFishCount = collect($lanterFishes)->sum();
 
-if (env() !== 'testing') {
+if (getenv('env') !== 'testing') {
     var_dump($lanterFishCount);
 }
 

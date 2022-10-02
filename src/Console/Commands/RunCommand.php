@@ -2,13 +2,13 @@
 
 namespace AOC\Console\Commands;
 
-use AOC\Console\Command;
+use Illuminate\Console\Command;
 
 class RunCommand extends Command
 {
-    protected string $signature = 'run {year} {day} {part}';
+    protected $signature = 'run {year} {day} {part}';
 
-    protected string $description = 'Runs a AOC part of day.';
+    protected $description = 'Runs a AOC part of day.';
 
     public function handle(): int
     {

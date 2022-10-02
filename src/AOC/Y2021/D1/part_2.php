@@ -35,7 +35,7 @@ foreach ($summedNumbers as $number) {
     $prevN = $number;
 }
 
-if (env() !== 'testing') {
+if (getenv('env') !== 'testing') {
     var_dump($isGreaterCount);
 }
 

@@ -2,13 +2,13 @@
 
 namespace {{ namespace }};
 
-use AOC\Console\Command;
+use Illuminate\Console\Command;
 
 class {{ class }} extends Command
 {
-    protected string $signature = '{{ command }}';
+    protected $signature = '{{ command }}';
 
-    protected string $description = 'Command description';
+    protected $description = 'Command description';
 
     public function handle(): int
     {

@@ -2,6 +2,8 @@
 
 namespace AOC\Console;
 
+use Illuminate\Console\Command;
+
 class GeneratorCommand extends Command
 {
     private string $generatedFilePath;

@@ -16,7 +16,7 @@
         "phpunit/phpunit": "^9.5"
     },
     "require": {
-        "symfony/console": "^6.1",
-        "illuminate/collections": "^9.31"
+        "illuminate/collections": "^9.31",
+        "illuminate/console": "^9.33"
     }
 }

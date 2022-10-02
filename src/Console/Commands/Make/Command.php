@@ -6,11 +6,11 @@ use AOC\Console\GeneratorCommand;
 
 class Command extends GeneratorCommand
 {
-    protected string $signature = 'make:command
+    protected $signature = 'make:command
                                     {name}
                                     {--command=command:name : The terminal command that should be assigned [default: "command:name"]}';
 
-    protected string $description = 'Creates a new AOC command';
+    protected $description = 'Creates a new AOC command';
 
     public function handle(): int
     {
@@ -30,7 +30,7 @@ class Command extends GeneratorCommand
 
         file_put_contents($this->getPath(), $generatedFileContents);
 
-        $this->success('Command '.$this->argument('name').' Created successfully.');
+        $this->info('Command '.$this->argument('name').' Created successfully.');
 
         return Command::SUCCESS;
     }

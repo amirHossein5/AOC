@@ -141,7 +141,7 @@ foreach ($allCoordinates as $coordinates) {
     $diagram[$y] = implode('', $row);
 }
 
-if (env() !== 'testing') {
+if (getenv('env') !== 'testing') {
     file_put_contents(__DIR__.'/diagram.txt', $diagram);
 
     var_dump($leastTwoLineOverlapCount);

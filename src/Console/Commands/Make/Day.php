@@ -2,13 +2,13 @@
 
 namespace AOC\Console\Commands\Make;
 
-use AOC\Console\Command;
+use Illuminate\Console\Command;
 
 class Day extends Command
 {
-    protected string $signature = 'make:day {year} {day}';
+    protected $signature = 'make:day {year} {day}';
 
-    protected string $description = 'Create a new AOC day.';
+    protected $description = 'Create a new AOC day.';
 
     public function handle(): int
     {
@@ -52,6 +52,6 @@ class Day extends Command
             file_put_contents($filePath, '');
         }
 
-        $this->success("File {$fileName} Created successfully.");
+        $this->info("File {$fileName} Created successfully.");
     }
 }

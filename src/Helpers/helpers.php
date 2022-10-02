@@ -42,11 +42,6 @@ function stubs_path(): string
     return pathable(base_path().'/stubs');
 }
 
-function env(): string
-{
-    return getenv('env');
-}
-
 function pathable(string $path): string
 {
     return str_replace('/', DIRECTORY_SEPARATOR, $path);

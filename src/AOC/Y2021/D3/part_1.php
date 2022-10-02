@@ -28,7 +28,7 @@ for ($i = 0; $i < strlen($puzzle[0]); $i++) {
 $gammaRDecimal = bindec($gammaR);
 $epsilonRDecimal = bindec($epsilonR);
 
-if (env() !== 'testing') {
+if (getenv('env') !== 'testing') {
     var_dump($epsilonRDecimal * $gammaRDecimal);
 }
 

@@ -19,7 +19,7 @@ foreach ($puzzle as $value) {
     }
 }
 
-if (env() !== 'testing') {
+if (getenv('env') !== 'testing') {
     var_dump($horizontal * $depth);
 }
 
