@@ -16,7 +16,7 @@ php aoc run 2021 1 1   //year day part
 
 > Put your puzzle in `puzzle.php` of day folder.
 
-## Creaing New Day
+## Creating New Day
 
 Simply By running:
 
@@ -24,7 +24,7 @@ Simply By running:
 php aoc make:day 2021 3     //year day
 ```
 
-Intended day will be create.
+the intended day will be create.
 
 ## Testing
 
