@@ -4,7 +4,7 @@ require 'helpers.php';
 
 use AOC\Services\Read;
 
-$puzzle = Read::lineByline(__DIR__.'/puzzle.php');
+$puzzle = Read::lineByline(__DIR__ . '/puzzle.php');
 
 // oxygen
 $filtered = $puzzle;

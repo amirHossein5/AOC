@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__.'/helpers.php';
+require_once __DIR__ . '/helpers.php';
 
 use AOC\Services\Read;
 
-$puzzle = Read::lineByline(__DIR__.'/puzzle.txt');
+$puzzle = Read::lineByline(__DIR__ . '/puzzle.txt');
 
 $allCoordinates = [];
 $maxNumber = 0;
@@ -51,24 +51,24 @@ foreach ($puzzle as $coordinates) {
 }
 
 /* draw vanilla . diagram */
-file_put_contents(__DIR__.'/diagram.txt', '');
+file_put_contents(__DIR__ . '/diagram.txt', '');
 
 // append horizontally
 for ($i = 0; $i <= $maxNumber; $i++) {
-    file_put_contents(__DIR__.'/diagram.txt', file_get_contents(__DIR__.'/diagram.txt').'.');
+    file_put_contents(__DIR__ . '/diagram.txt', file_get_contents(__DIR__ . '/diagram.txt') . '.');
 }
 // append vertically
-$appendLine = explode(PHP_EOL, file_get_contents(__DIR__.'/diagram.txt'))[0];
+$appendLine = explode(PHP_EOL, file_get_contents(__DIR__ . '/diagram.txt'))[0];
 
 for ($i = 0; $i < $maxNumber; $i++) {
-    $diagramFile = fopen(__DIR__.'/diagram.txt', 'a');
-    fwrite($diagramFile, PHP_EOL.$appendLine);
+    $diagramFile = fopen(__DIR__ . '/diagram.txt', 'a');
+    fwrite($diagramFile, PHP_EOL . $appendLine);
     fclose($diagramFile);
 }
 
 /** draw numbers */
 $leastTwoLineOverlapCount = 0;
-$diagram = Read::lineByline(__DIR__.'/diagram.txt');
+$diagram = Read::lineByline(__DIR__ . '/diagram.txt');
 
 foreach ($allCoordinates as $coordinates) {
     $x = $coordinates['x'];
@@ -86,7 +86,7 @@ foreach ($allCoordinates as $coordinates) {
 }
 
 if (getenv('env') !== 'testing') {
-    file_put_contents(__DIR__.'/diagram.txt', $diagram);
+    file_put_contents(__DIR__ . '/diagram.txt', $diagram);
 
     var_dump($leastTwoLineOverlapCount);
 }

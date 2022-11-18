@@ -9,7 +9,7 @@ class CommandTest extends TestCase
 {
     public function test_creates_new_command()
     {
-        $this->unlinkFilesForTesting[] = $testCommandPath = src_path().'/Console/Commands/TestingCommand.php';
+        $this->unlinkFilesForTesting[] = $testCommandPath = src_path() . '/Console/Commands/TestingCommand.php';
 
         $this->assertFileDoesNotExist($testCommandPath);
 
@@ -20,9 +20,9 @@ class CommandTest extends TestCase
 
     public function test_creates_new_command_with_nested_directories()
     {
-        $this->unlinkFilesForTesting[] = $testCommandPath = src_path().'/Console/Commands/Test1/Test2/TestingCommand.php';
-        $this->unlinkFoldersForTesting[] = src_path().'/Console/Commands/Test1/Test2';
-        $this->unlinkFoldersForTesting[] = src_path().'/Console/Commands/Test1';
+        $this->unlinkFilesForTesting[] = $testCommandPath = src_path() . '/Console/Commands/Test1/Test2/TestingCommand.php';
+        $this->unlinkFoldersForTesting[] = src_path() . '/Console/Commands/Test1/Test2';
+        $this->unlinkFoldersForTesting[] = src_path() . '/Console/Commands/Test1';
 
         $this->assertFileDoesNotExist($testCommandPath);
 
@@ -33,7 +33,7 @@ class CommandTest extends TestCase
 
     public function test_fails_when_command_already_exists()
     {
-        $this->unlinkFilesForTesting[] = $testCommandPath = src_path().'/Console/Commands/TestingCommand.php';
+        $this->unlinkFilesForTesting[] = $testCommandPath = src_path() . '/Console/Commands/TestingCommand.php';
 
         $this->command('php aoc make:command TestingCommand');
 
@@ -41,13 +41,13 @@ class CommandTest extends TestCase
 
         $this->assertStrContains(
             $this->command('php aoc make:command TestingCommand'),
-            'File already exists In: '.pathable($testCommandPath)
+            'File already exists In: ' . pathable($testCommandPath)
         );
     }
 
     public function test_stub_variables_are_setted()
     {
-        $this->unlinkFilesForTesting[] = $testCommandPath = src_path().'/Console/Commands/TestingCommand.php';
+        $this->unlinkFilesForTesting[] = $testCommandPath = src_path() . '/Console/Commands/TestingCommand.php';
 
         $this->assertFileDoesNotExist($testCommandPath);
 
@@ -63,7 +63,7 @@ class CommandTest extends TestCase
 
     public function test_command_option()
     {
-        $this->unlinkFilesForTesting[] = $testCommandPath = src_path().'/Console/Commands/TestingCommand.php';
+        $this->unlinkFilesForTesting[] = $testCommandPath = src_path() . '/Console/Commands/TestingCommand.php';
 
         $this->assertFileDoesNotExist($testCommandPath);
 

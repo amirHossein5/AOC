@@ -21,7 +21,7 @@ class Command extends GeneratorCommand
         $this->setVariables($generatedFileContents);
 
         if (count($remainVars = $this->getVariables($generatedFileContents)) !== 0) {
-            $this->error(implode(', ', $remainVars).' -> not setted.');
+            $this->error(implode(', ', $remainVars) . ' -> not setted.');
 
             unlink($this->getPath());
 
@@ -30,19 +30,19 @@ class Command extends GeneratorCommand
 
         file_put_contents($this->getPath(), $generatedFileContents);
 
-        $this->info('Command '.$this->argument('name').' Created successfully.');
+        $this->info('Command ' . $this->argument('name') . ' Created successfully.');
 
         return Command::SUCCESS;
     }
 
     protected function getStub()
     {
-        return stubs_path().'/console.stub';
+        return stubs_path() . '/console.stub';
     }
 
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\\Console\\Commands';
+        return $rootNamespace . '\\Console\\Commands';
     }
 
     private function setVariables(string &$generatedFileContents): void

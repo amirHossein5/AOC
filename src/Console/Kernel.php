@@ -10,12 +10,12 @@ class Kernel
 {
     public function registerCommands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
     }
 
     public function load(string $path): void
     {
-        $application = new Application(new Container, new Dispatcher, '9');
+        $application = new Application(new Container(), new Dispatcher(), '9');
 
         $path = realpath(trim($path));
 

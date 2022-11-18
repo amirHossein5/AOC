@@ -2,7 +2,7 @@
 
 use AOC\Services\Read;
 
-$puzzle = Read::contents(__DIR__.'/puzzle.php');
+$puzzle = Read::contents(__DIR__ . '/puzzle.php');
 
 preg_match_all("/forward (\d+)/", $puzzle, $forwards);
 preg_match_all("/down (\d+)/", $puzzle, $downwards);

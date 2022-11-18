@@ -37,6 +37,6 @@ class Y2021_Test extends \Tests\TestCase
 
     private function getPathToYear()
     {
-        return src_path().'/AOC/Y2021';
+        return src_path() . '/AOC/Y2021';
     }
 }

@@ -12,20 +12,22 @@ class Day extends Command
 
     public function handle(): int
     {
-        $dir = src_path().'/AOC/Y'.$this->argument('year').'/D'.$this->argument('day');
+        $dir = src_path() . '/AOC/Y' . $this->argument('year') . '/D' . $this->argument('day');
         $dir = pathable($dir);
 
         if (! is_dir($dir)) {
             mkdir($dir, 0777, true);
         }
 
-        collect(['part_1.php', 'part_2.php'])->each(fn ($file) => $this->createFile(filePath: pathable("{$dir}/{$file}"))
+        collect(['part_1.php', 'part_2.php'])->each(
+            fn ($file) => $this->createFile(filePath: pathable("{$dir}/{$file}"))
         );
 
-        collect(['puzzle.txt'])->each(fn ($file) => $this->createFile(
-                filePath: pathable("{$dir}/{$file}"),
-                hasStub: false,
-            )
+        collect(['puzzle.txt'])->each(
+            fn ($file) => $this->createFile(
+            filePath: pathable("{$dir}/{$file}"),
+            hasStub: false,
+        )
         );
 
         return Command::SUCCESS;
@@ -33,7 +35,7 @@ class Day extends Command
 
     protected function getStub()
     {
-        return stubs_path().'/AOCPart.stub';
+        return stubs_path() . '/AOCPart.stub';
     }
 
     private function createFile(string $filePath, bool $hasStub = true): void

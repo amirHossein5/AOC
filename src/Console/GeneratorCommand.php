@@ -13,11 +13,11 @@ class GeneratorCommand extends Command
     public function handle(): int
     {
         $this->generatedFileClassName = array_slice(explode('/', $this->argument('name')), -1)[0];
-        $this->generatedFilePath = pathable($this->namespaceToPath($this->getDefaultNamespace('AOC'))."/{$this->argument('name')}.php");
-        $this->generatedFileNamespace = $this->pathToNamespace(str_replace($this->getClassName().'.php', '', $this->getPath()));
+        $this->generatedFilePath = pathable($this->namespaceToPath($this->getDefaultNamespace('AOC')) . "/{$this->argument('name')}.php");
+        $this->generatedFileNamespace = $this->pathToNamespace(str_replace($this->getClassName() . '.php', '', $this->getPath()));
 
         if (file_exists($this->getPath())) {
-            $this->error('File already exists In: '.$this->getPath());
+            $this->error('File already exists In: ' . $this->getPath());
             exit;
         }
 

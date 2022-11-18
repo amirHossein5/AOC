@@ -2,9 +2,9 @@
 
 use AOC\Services\Read;
 
-require_once __DIR__.'/helpers.php';
+require_once __DIR__ . '/helpers.php';
 
-$puzzle = Read::firstLine(__DIR__.'/puzzle.txt');
+$puzzle = Read::firstLine(__DIR__ . '/puzzle.txt');
 $days = 256;
 $newLanterFishAge = 8;
 $lanterFishRefreshAge = 6;

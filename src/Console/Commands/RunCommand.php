@@ -14,7 +14,7 @@ class RunCommand extends Command
     {
         ['year' => $year, 'day' => $day, 'part' => $part] = $this->arguments();
 
-        $filePath = pathable(src_path().'/AOC/'."Y{$year}/D{$day}/part_{$part}.php");
+        $filePath = pathable(src_path() . '/AOC/' . "Y{$year}/D{$day}/part_{$part}.php");
 
         if (! file_exists($filePath)) {
             $this->error("AOC Not Found: year->{$year}, day->{$day}, part->{$part}");

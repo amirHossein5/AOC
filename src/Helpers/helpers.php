@@ -29,17 +29,17 @@ function dump(mixed ...$params): void
 
 function base_path(): string
 {
-    return pathable(realpath(__DIR__.'/../../'));
+    return pathable(realpath(__DIR__ . '/../../'));
 }
 
 function src_path(): string
 {
-    return pathable(base_path().'/src');
+    return pathable(base_path() . '/src');
 }
 
 function stubs_path(): string
 {
-    return pathable(base_path().'/stubs');
+    return pathable(base_path() . '/stubs');
 }
 
 function pathable(string $path): string

@@ -11,7 +11,7 @@ trait HasFormattedOutput
 
     protected function line(string $string): void
     {
-        $this->write($string.PHP_EOL);
+        $this->write($string . PHP_EOL);
     }
 
     protected function newLine(int $newLine = 1): void
