@@ -2,7 +2,7 @@
 
 use AOC\Services\Read;
 
-$puzzle = Read::contents(__DIR__.'/puzzle.txt');
+$puzzle = Read::contents(__DIR__ . '/puzzle.txt');
 $puzzle = collect(explode(',', $puzzle));
 
 $midNumber = $puzzle->sort()->values()->get(
