@@ -9,6 +9,10 @@ class Y2021_Test extends \Tests\TestCase
     use TestableDays;
 
     private array $answers = [
+        'D7' => [
+            'part_1' => 333755,
+            'part_2' => 94017638,
+        ],
         'D6' => [
             'part_1' => 352872,
             'part_2' => 1604361182149,
