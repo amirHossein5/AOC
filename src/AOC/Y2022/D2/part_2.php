@@ -4,7 +4,7 @@ use AOC\Services\Read;
 
 require_once 'helpers.php';
 
-$puzzle = Read::lineByline(__DIR__.'/puzzle.txt');
+$puzzle = Read::lineByline(__DIR__ . '/puzzle.txt');
 $rockPaperGames = collect($puzzle)->chunk(3);
 $decodeMovements = [
     'againstMove' => ['A' => ROCK, 'B' => PAPER, 'C' => SEASOR],
@@ -22,8 +22,8 @@ $movementScores = [
     SEASOR => 3,
 ];
 
-foreach($rockPaperGames as $rounds) {
-    foreach($rounds as $round => $movements) {
+foreach ($rockPaperGames as $rounds) {
+    foreach ($rounds as $round => $movements) {
         $round += 1;
         [$againstMove, $yourMove] = explode(' ', $movements);
         $againstMove = $decodeMovements['againstMove'][$againstMove];
@@ -32,7 +32,7 @@ foreach($rockPaperGames as $rounds) {
 
         if (is_null($wonRound)) {
             $totalScore += $drawScore;
-        } else if ($wonRound) {
+        } elseif ($wonRound) {
             $totalScore += $wonScore;
         } else {
             $totalScore += $lostScore;
@@ -46,4 +46,3 @@ if (getenv('env') !== 'testing') {
 }
 
 return $totalScore;
-

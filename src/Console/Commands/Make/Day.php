@@ -25,9 +25,9 @@ class Day extends Command
 
         collect(['puzzle.txt'])->each(
             fn ($file) => $this->createFile(
-            filePath: pathable("{$dir}/{$file}"),
-            hasStub: false,
-        )
+                filePath: pathable("{$dir}/{$file}"),
+                hasStub: false,
+            )
         );
 
         return Command::SUCCESS;

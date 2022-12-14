@@ -33,7 +33,7 @@ function haveWonRockPaper(
         return true;
     }
 
-    throw new \Exception("{$yourMove}, {$againstMove}, movement unmatched. valid movements: ". ROCK .', '. PAPER.', '. SEASOR);
+    throw new \Exception("{$yourMove}, {$againstMove}, movement unmatched. valid movements: " . ROCK . ', ' . PAPER . ', ' . SEASOR);
 }
 
 /**
